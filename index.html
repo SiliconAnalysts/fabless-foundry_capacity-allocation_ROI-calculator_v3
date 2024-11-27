@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Previous styles remain exactly the same -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ROI Calculator</title>
     <style>
-        /* All previous styles remain exactly the same */
+        /* Previous styles remain the same */
         body {
             font-family: system-ui, -apple-system, sans-serif;
             margin: 0;
@@ -92,6 +91,57 @@
             color: #6b7280;
             font-size: 12px;
         }
+        .results {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 8px;
+        }
+        .result-item {
+            display: grid;
+            grid-template-columns: 48px 1fr auto;
+            align-items: center;
+            gap: 16px;
+            padding: 16px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+        }
+        .step-number {
+            width: 32px;
+            height: 32px;
+            background: #4763E4;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .result-details {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .result-label {
+            font-weight: 600;
+            color: #374151;
+            font-size: 16px;
+        }
+        .result-formula {
+            font-size: 12px;
+            color: #6b7280;
+        }
+        .result-value {
+            font-size: 20px;
+            font-weight: 600;
+            color: #4763E4;
+            text-align: right;
+        }
+        /* Rest of previous styles remain the same */
         .methodology-section {
             background: #f8fafc;
             padding: 24px;
@@ -103,54 +153,20 @@
             padding-left: 16px;
             margin-bottom: 24px;
         }
+        .methodology-item:last-child {
+            margin-bottom: 0;
+        }
         .formula {
             font-family: monospace;
             font-size: 14px;
             color: #6b7280;
             margin: 8px 0;
         }
-        .results {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 16px;
-            padding: 20px;
-            background: #f8fafc;
-            border-radius: 8px;
-        }
-        .result-item {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        .step-number {
-            width: 24px;
-            height: 24px;
-            background: #4763E4;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: 500;
-        }
-        .result-label {
-            font-weight: 600;
-            color: #374151;
-        }
-        .result-formula {
-            font-size: 12px;
-            color: #6b7280;
-        }
-        .result-value {
-            font-size: 20px;
-            font-weight: 600;
-            color: #4763E4;
-        }
     </style>
 </head>
 <body>
     <div class="calculator-container">
+        <!-- Header and tabs remain the same -->
         <div class="header">
             <h1>ROI Calculator</h1>
             <p>Calculate the value of prepayment and capacity flexibility</p>
@@ -163,6 +179,7 @@
 
         <div id="calculator" class="tab-content active">
             <div class="content">
+                <!-- Input grid remains the same -->
                 <div class="input-grid">
                     <div class="input-field">
                         <label>Annual Wafer Demand</label>
@@ -191,44 +208,57 @@
                     </div>
                 </div>
 
+                <!-- Updated results section -->
                 <div class="results">
                     <div class="result-item">
                         <div class="step-number">1</div>
-                        <div class="result-label">Base Cost</div>
-                        <div class="result-formula">Annual Wafers × Wafer Cost</div>
+                        <div class="result-details">
+                            <div class="result-label">Base Cost</div>
+                            <div class="result-formula">Annual Wafers × Wafer Cost</div>
+                        </div>
                         <div id="baseCost" class="result-value">$600.0M</div>
                     </div>
                     <div class="result-item">
                         <div class="step-number">2</div>
-                        <div class="result-label">Prepayment</div>
-                        <div class="result-formula">Base Cost × Prepayment%</div>
+                        <div class="result-details">
+                            <div class="result-label">Prepayment</div>
+                            <div class="result-formula">Base Cost × Prepayment%</div>
+                        </div>
                         <div id="prepayment" class="result-value">$60.0M</div>
                     </div>
                     <div class="result-item">
                         <div class="step-number">3</div>
-                        <div class="result-label">Cost Savings</div>
-                        <div class="result-formula">Base Cost × Discount%</div>
+                        <div class="result-details">
+                            <div class="result-label">Cost Savings</div>
+                            <div class="result-formula">Base Cost × Discount%</div>
+                        </div>
                         <div id="savings" class="result-value">$30.0M</div>
                     </div>
                     <div class="result-item">
                         <div class="step-number">4</div>
-                        <div class="result-label">Flexibility Value</div>
-                        <div class="result-formula">Base × Flexibility</div>
+                        <div class="result-details">
+                            <div class="result-label">Flexibility Value</div>
+                            <div class="result-formula">Base × Flexibility</div>
+                        </div>
                         <div id="flexValue" class="result-value">$120.0M</div>
                     </div>
                     <div class="result-item">
                         <div class="step-number">5</div>
-                        <div class="result-label">Total ROI</div>
-                        <div class="result-formula">(Savings + Flex) / Prepay</div>
+                        <div class="result-details">
+                            <div class="result-label">Total ROI</div>
+                            <div class="result-formula">(Savings + Flex) / Prepay</div>
+                        </div>
                         <div id="roi" class="result-value">250.0%</div>
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- Methodology tab content remains the same -->
         <div id="methodology" class="tab-content">
             <div class="content">
                 <div class="methodology-section">
+                    <!-- Methodology items remain the same -->
                     <div class="methodology-item">
                         <h3>1. Base Cost</h3>
                         <div class="formula">Base Cost = Annual Wafer Demand × Wafer Cost</div>
@@ -260,6 +290,7 @@
     </div>
 
     <script>
+        // JavaScript remains exactly the same
         function switchTab(tabId) {
             document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
             document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
